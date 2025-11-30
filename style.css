@@ -1,0 +1,581 @@
+:root {
+    --primary: #4CAF50;
+    --bg: #010101;
+}
+
+html, body {
+    overflow-x: hidden; 
+    width: 100%;
+}
+
+*, html, body {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: #fff;
+}
+
+/* NAVBAR */
+nav {
+    width: 100%;
+    height: 70px;
+    z-index: 10;
+    display: flex;
+    position: fixed;
+    background-color: var(--primary);
+    box-shadow: 0px 7px 8px 0px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 7px 8px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 7px 8px 0px rgba(0,0,0,0.5);
+}
+
+nav .navbar-logo {
+    margin-left: 4rem;
+    line-height: 70px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: italic;
+    color: white;
+}
+
+nav .navbar-logo span {
+    color: white;
+}
+
+nav .navigation {
+    margin: 0 auto;
+    line-height: 70px;
+}
+
+nav .navigation ul {
+    display: flex;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+nav .navigation ul li {
+    text-align: center;
+    margin-left: 1rem;
+}
+
+nav .navigation ul li a {
+    height: 97%;
+    display: block;
+    color: white;
+    font-weight: 500;
+    padding: 0 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+nav .navigation ul li a:hover {
+    font-weight: 700;
+    background-color: #368C5A;
+}
+
+nav .navigation ul li.light a {
+    border-bottom: 3px solid darkgreen;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #E8F5E8 0%, #F0F9F0 100%);
+    padding: 5rem 1rem;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero-container {
+    max-width: 1200px; /* Diperbesar agar muat teks dan gambar bersebelahan */
+    margin: 40px auto;
+    display: flex; /* Menggunakan Flexbox untuk layout bersebelahan */
+    align-items: center; /* Vertikal center */
+    justify-content: space-between; /* Teks di kiri, gambar di kanan */
+    gap: 2rem; /* Jarak antara teks dan gambar */
+    flex-wrap: wrap; /* Agar responsive */
+}
+
+.hero-text {
+    flex: 1; /* Teks mengambil ruang yang tersedia */
+    text-align: left; /* Teks rata kiri untuk keseimbangan */
+}
+
+.hero-text h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #41B06E;
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.hero-images {
+    flex: 1; /* Gambar mengambil ruang yang tersedia */
+    display: flex; /* Gambar-gambar dalam satu baris */
+    gap: 1rem; /* Jarak antar gambar */
+    justify-content: center; /* Center gambar jika ada ruang */
+    flex-wrap: wrap; /* Wrap jika terlalu banyak gambar */
+}
+
+.hero-images img {
+    max-width: 100%; /* Responsif */
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Setiap gambar ambil ruang sama */
+    min-width: 200px; /* Minimal lebar agar tidak terlalu kecil */
+}
+
+.btn-cta {
+    display: inline-block;
+    background-color: #41B06E;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-cta:hover {
+    background-color: #368C5A;
+    transform: translateY(-2px);
+}
+
+/* Animasi fade-in Hero Section */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Section Pengertian */
+.pengertian, 
+.cara-pengolahan,
+.manfaat,
+.tujuan,
+.dampak,
+.anggota {
+    background-color: #fff;
+    padding: 65px 0;
+    margin: 0 auto; 
+}
+
+.pengertian h2,
+.cara-pengolahan h2,
+.manfaat h2,
+.tujuan h2,
+.dampak h2,
+.anggota h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #41B06E;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.pengertian img {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease;
+}
+
+.pengertian img:hover {
+    transform: scale(1.05);                   
+}
+
+.pengertian p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Section Cara Pengolahan */
+.cara-pengolahan {
+    background-color: #f9f9f9;
+}
+
+.cara-pengolahan .card {
+    background: linear-gradient(135deg, #E8F5E8 0%, #C8E6C9 100%); /* Gradient hijau eco-friendly */
+    border-radius: 1rem; /* Lebih bulat untuk kesan modern */
+    padding: 2rem; /* Padding lebih besar untuk ruang */
+    color: #2E7D32; /* Warna teks hijau gelap */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow halus */
+    transition: all 0.4s ease; /* Transisi smooth untuk semua efek */
+    position: relative; /* Untuk efek glow */
+    overflow: hidden; /* Agar gradient tidak keluar */
+    border: 1px solid #A5D6A7; /* Border tipis hijau */
+}
+
+.cara-pengolahan .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.cara-pengolahan .card:hover {
+    transform: translateY(-8px) scale(1.02); /* Scale dan lift lebih smooth */
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3); /* Glow hijau saat hover */
+    background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 100%); /* Gradient lebih gelap saat hover */
+}
+
+.cara-pengolahan .card-icon {
+    width: 3rem; /* Ukuran icon */
+    height: 3rem;
+    margin: 0 auto 1rem; /* Center dan beri jarak bawah */
+    color: #4CAF50; /* Warna icon hijau */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(76, 175, 80, 0.1); /* Background transparan untuk icon */
+    border-radius: 50%; /* Bulat */
+    transition: color 0.3s ease;
+}
+
+.cara-pengolahan .card-icon:hover {
+    color: #388E3C; /* Icon lebih gelap saat hover */
+}
+
+.cara-pengolahan .card-title {
+    font-size: 1.4rem; /* Lebih besar */
+    font-weight: 700; /* Lebih bold */
+    color: #1B5E20; /* Hijau gelap */
+    margin-bottom: 0.75rem;
+    text-align: center; /* Center title */
+}
+
+.cara-pengolahan .card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #388E3C; /* Hijau medium */
+    text-align: center; /* Center teks */
+}
+
+.cara-pengolahan .video-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.cara-pengolahan .video-container iframe {
+    border-radius: 0.5rem;
+}
+
+/* Slide-up animation */
+.slide-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Section Manfaat */
+.manfaat .card {
+    background-color: #f0f9f0; /* Latar belakang hijau muda */
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.manfaat ul {
+    list-style: none;
+    padding: 0;
+}
+
+.manfaat li {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.manfaat li::before {
+    content: "✓";
+    color: #4CAF50;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Section Tujuan */
+.tujuan {
+    background-color: #f9f9f9;
+}
+
+.tujuan .bullet-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tujuan li {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #e8f5e8;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bullet-list {
+    list-style: none;
+    padding: 0;
+}
+
+.bullet-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.bullet-list svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #41B06E;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* Section Dampak */
+.dampak .grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dampak .card-red {
+    background-color: #ffebee; /* Latar belakang merah muda untuk menunjukkan negatif */
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.dampak .card-title-red {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #d32f2f; /* Merah gelap */
+    margin-bottom: 1rem;
+}
+
+.dampak .card-red p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Section Anggota */
+.anggota {
+    background-color: #f9f9f9;
+}
+
+.top-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-items: center; 
+}
+
+.bottom-row {
+    display: flex;
+    justify-content: center; 
+    gap: 1.5rem; 
+    margin-top: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bottom-row .card {
+    flex: 1; 
+    max-width: 250px; 
+}
+
+.anggota .card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.anggota .card:hover {
+    transform: translateY(-5px);
+}
+
+.anggota .member-photo {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #4CAF50;
+}
+
+.anggota .card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #41B06E;
+    margin-bottom: 0.5rem;
+}
+
+.anggota .card p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #132916 0%, #1e3a2e 100%); /* Gradient hijau gelap untuk tampilan lebih menarik */
+    color: #fff;
+    padding: 2rem 1rem 1rem; /* Padding atas lebih besar untuk ruang */
+    position: relative;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* Shadow atas untuk efek kedalaman */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grid responsif untuk kolom */
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: #4CAF50; /* Hijau terang untuk judul */
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.footer-section p {
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #4CAF50; /* Hover hijau */
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.social-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #4CAF50;
+    border-radius: 40%;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    stroke: #fff; 
+}
+
+.social-icon:hover {
+    background-color: #388E3C; 
+    transform: scale(1.1); 
+    stroke: #fff;
+}
+
+.footer-divider {
+    border: none;
+    height: 1px;
+    background-color: #4CAF50;
+    margin: 1rem 0;
+}
+
+.footer-bottom {
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.heart {
+    color: #ff6b6b; /* Warna merah untuk hati */
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr; /* Kolom menjadi satu pada mobile */
+        text-align: center;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero {
+        padding: 3rem 1rem;
+    }
+    .section {
+        padding: 2rem 1rem;
+    }
+    .grid-cards {
+        grid-template-columns: 1fr;
+    }
+    .nav-menu {
+        display: none;
+    }
+    .mobile-menu-toggle {
+        display: block;
+    }
+    .video-container iframe {
+        width: 100%;
+        height: auto;
+    }
+}
