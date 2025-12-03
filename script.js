@@ -1,76 +1,98 @@
 feather.replace();
 
-// JavaScript untuk animasi scroll menggunakan IntersectionObserver
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+// animasi scroll pakai IntersectionObserver
+const slideObs = new IntersectionObserver((items) => {
+    items.forEach(item => {
+        if (item.isIntersecting) {
+            item.target.classList.add('visible');
         }
     });
 }, { threshold: 0.1 });
 
-// Ambil semua elemen dengan class slide-up
+// ambil elemen slide-up
 document.querySelectorAll('.slide-up').forEach(el => {
-    observer.observe(el);
+    slideObs.observe(el);
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Ambil semua link di dalam navbar
-    const navLinks = document.querySelectorAll('nav .navigation ul li a');
+    const navLinks = document.querySelectorAll('nav .navMenu ul li a');
     
-    // Fungsi untuk menghapus class 'light' dari semua li dan menambahkannya ke yang aktif
     function setActiveLink(activeLink) {
-        document.querySelectorAll('nav .navigation ul li').forEach(li => {
-            li.classList.remove('light');
+        document.querySelectorAll('nav .navMenu ul li').forEach(li => {
+        li.classList.remove('light');
         });
         if (activeLink) {
-            activeLink.parentElement.classList.add('light');
+        activeLink.parentElement.classList.add('light');
         }
     }
     
-    // Event listener untuk klik pada link
+    // klik link
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            setActiveLink(this);
+        setActiveLink(this);
         });
     });
     
-    // Intersection Observer untuk mendeteksi bagian yang sedang terlihat saat scroll
+    // observer buat deteksi section saat scroll
     const sections = document.querySelectorAll('section[id]');
-    const observerOptions = {
+    const obsOpts = {
         root: null,
         rootMargin: '0px',
         rootMargin: '0px',
         threshold: 0.5
     };
     
-    const observer = new IntersectionObserver((entries) => {
+    const navObs = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                const activeLink = document.querySelector(`nav .navigation ul li a[href="#${id}"]`);
-                setActiveLink(activeLink);
-            }
+        if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            const activeLink = document.querySelector(`nav .navMenu ul li a[href="#${id}"]`);
+            setActiveLink(activeLink);
+        }
         });
-    }, observerOptions);
+    }, obsOpts);
     
-    // Observasi setiap section
+    // observe sections
     sections.forEach(section => {
-        observer.observe(section);
+        navObs.observe(section);
     });
-    // Mobile menu toggle
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const navigation = document.querySelector('nav .navigation');
-    mobileMenuToggle.addEventListener('click', function() {
-        navigation.classList.toggle('active');
-        // Toggle animation for hamburger icon
+    
+    // toggle mobile menu
+    const mobileToggle = document.getElementById('mobile-menu-toggle');
+    const navMenu = document.querySelector('nav .navMenu');
+    mobileToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        // toggle hamburger
         this.classList.toggle('active');
     });
-    // Close mobile menu when a link is clicked
+    
+    // close menu saat klik link
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            navigation.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
         });
     });
+});
+
+// Ambil elemen-elemen
+const videoBtn = document.querySelector('.video-button');
+const tampilan = document.getElementById('video-tampilan');
+const closeBtn = document.querySelector('.close');
+
+// Fungsi untuk membuka tampilan
+videoBtn.addEventListener('click', () => {
+    tampilan.style.display = 'block';
+});
+
+// Fungsi untuk menutup tampilan
+closeBtn.addEventListener('click', () => {
+    tampilan.style.display = 'none';
+});
+
+// Tutup tampilan jika klik di luar konten
+window.addEventListener('click', (event) => {
+    if (event.target === tampilan) {
+        tampilan.style.display = 'none';
+    }
 });
